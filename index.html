@@ -184,6 +184,85 @@
       }
     }
 
+    /* ── Password Overlay ── */
+    #pw-overlay {
+      position: fixed;
+      inset: 0;
+      background: #ffffff;
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+    }
+
+    #pw-overlay h2 {
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    #pw-overlay p {
+      font-size: 10px;
+      font-weight: 300;
+      letter-spacing: 0.08em;
+      color: var(--color-muted);
+    }
+
+    .pw-form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .pw-form input {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 300;
+      letter-spacing: 0.15em;
+      border: none;
+      border-bottom: 1px solid var(--color-text);
+      outline: none;
+      padding: 8px 0;
+      width: 200px;
+      text-align: center;
+      background: transparent;
+    }
+
+    .pw-form input::placeholder {
+      color: var(--color-border);
+      letter-spacing: 0.1em;
+    }
+
+    .pw-form button {
+      font-family: var(--font-main);
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      background: none;
+      border: 1px solid var(--color-text);
+      padding: 10px 32px;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .pw-form button:hover {
+      background: var(--color-text);
+      color: #ffffff;
+    }
+
+    .pw-error {
+      font-size: 10px;
+      font-weight: 300;
+      letter-spacing: 0.08em;
+      color: #999;
+      min-height: 16px;
+    }
+
     /* ── Responsive ── */
     @media (max-width: 600px) {
       .site-wrapper {
@@ -311,5 +390,41 @@
       <p>© Fumiko Cho</p>
     </footer>
   </div>
+  <!-- Password Overlay -->
+  <div id="pw-overlay">
+    <h2>Fumiko Cho</h2>
+    <div class="pw-form">
+      <input type="password" id="pw-input" placeholder="password" autocomplete="off">
+      <p class="pw-error" id="pw-error"></p>
+      <button onclick="checkPassword()">Enter</button>
+    </div>
+  </div>
+
+  <script>
+    // ── パスワードをここで変更してください ──
+    const CORRECT_PASSWORD = 'your-password';
+    const SESSION_KEY = 'fc_auth';
+
+    function checkPassword() {
+      const input = document.getElementById('pw-input').value;
+      if (input === CORRECT_PASSWORD) {
+        sessionStorage.setItem(SESSION_KEY, 'true');
+        document.getElementById('pw-overlay').style.display = 'none';
+      } else {
+        const err = document.getElementById('pw-error');
+        err.textContent = 'incorrect password';
+        document.getElementById('pw-input').value = '';
+      }
+    }
+
+    document.getElementById('pw-input').addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') checkPassword();
+    });
+
+    // セッション中は再入力不要
+    if (sessionStorage.getItem(SESSION_KEY) === 'true') {
+      document.getElementById('pw-overlay').style.display = 'none';
+    }
+  </script>
 </body>
 </html>
