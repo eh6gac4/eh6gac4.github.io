@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FUMIKO CHO — Art Direction / Design</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400&family=DM+Mono:wght@300&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --color-bg: #ffffff;
+      --color-text: #111111;
+      --color-muted: #888888;
+      --color-border: #e8e8e8;
+      --font-main: 'DM Sans', sans-serif;
+      --font-mono: 'DM Mono', monospace;
+    }
+
+    html {
+      font-size: 14px;
+    }
+
+    body {
+      background: var(--color-bg);
+      color: var(--color-text);
+      font-family: var(--font-main);
+      font-weight: 300;
+      min-height: 100vh;
+    }
+
+    /* ── Layout ── */
+    .site-wrapper {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    /* ── Header ── */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 48px 0 0;
+    }
+
+    .header-left h1 {
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .header-left p {
+      font-size: 11px;
+      font-weight: 300;
+      color: var(--color-muted);
+      letter-spacing: 0.05em;
+    }
+
+    /* ── Vertical Nav ── */
+    nav {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 20px;
+    }
+
+    nav a {
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-text);
+      text-decoration: none;
+      writing-mode: vertical-rl;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: var(--color-muted);
+    }
+
+    /* ── Works Grid ── */
+    .works {
+      margin-top: 80px;
+    }
+
+    .works-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px 32px;
+    }
+
+    .work-item {
+      cursor: pointer;
+    }
+
+    .work-thumb {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: var(--color-border);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .work-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s ease;
+    }
+
+    /* Placeholder style when no image */
+    .work-thumb .placeholder {
+      width: 100%;
+      height: 100%;
+      background: #f0f0f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .work-item:hover .work-thumb img {
+      transform: scale(1.03);
+    }
+
+    .work-caption {
+      margin-top: 10px;
+      font-size: 10px;
+      font-weight: 300;
+      letter-spacing: 0.06em;
+      color: var(--color-text);
+    }
+
+    /* ── Footer ── */
+    footer {
+      margin-top: 120px;
+      padding-bottom: 48px;
+      text-align: center;
+    }
+
+    footer p {
+      font-size: 10px;
+      font-weight: 300;
+      letter-spacing: 0.1em;
+      color: var(--color-muted);
+      font-family: var(--font-mono);
+    }
+
+    /* ── Fade-in on load ── */
+    .work-item {
+      opacity: 0;
+      transform: translateY(16px);
+      animation: fadeUp 0.6s ease forwards;
+    }
+
+    .work-item:nth-child(1)  { animation-delay: 0.05s; }
+    .work-item:nth-child(2)  { animation-delay: 0.10s; }
+    .work-item:nth-child(3)  { animation-delay: 0.15s; }
+    .work-item:nth-child(4)  { animation-delay: 0.20s; }
+    .work-item:nth-child(5)  { animation-delay: 0.25s; }
+    .work-item:nth-child(6)  { animation-delay: 0.30s; }
+    .work-item:nth-child(7)  { animation-delay: 0.35s; }
+    .work-item:nth-child(8)  { animation-delay: 0.40s; }
+    .work-item:nth-child(9)  { animation-delay: 0.45s; }
+    .work-item:nth-child(10) { animation-delay: 0.50s; }
+    .work-item:nth-child(11) { animation-delay: 0.55s; }
+    .work-item:nth-child(12) { animation-delay: 0.60s; }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .site-wrapper {
+        padding: 0 24px;
+      }
+      .works-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+      nav {
+        flex-direction: row;
+        gap: 16px;
+      }
+      nav a {
+        writing-mode: horizontal-tb;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="site-wrapper">
+    <header>
+      <div class="header-left">
+        <h1>Fumiko Cho</h1>
+        <p>Art Direction / Design</p>
+      </div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main class="works">
+      <div class="works-grid">
+
+        <div class="work-item">
+          <div class="work-thumb">
+            <!-- 画像を差し替える場合: <img src="images/work-01.jpg" alt="MilK MAGAZINE japon No.51"> -->
+            <div class="placeholder"></div>
+          </div>
+          <p class="work-caption">MilK MAGAZINE japon No.51</p>
+        </div>
+
+        <div class="work-item">
+          <div class="work-thumb">
+            <div class="placeholder"></div>
+          </div>
+          <p class="work-caption">MilK MAGAZINE japon No.50</p>
+        </div>
+
+        <div class="work-item">
+          <div class="work-thumb">
+            <div class="placeholder"></div>
+          </div>
+          <p class="work-caption">MilK MAGAZINE japon No.49</p>
+        </div>
+
+        <div class="work-item">
+          <div class="work-thumb">
+            <div class="placeholder"></div>
+          </div>
+          <p class="work-caption">MilK MAGAZINE japon No.48</p>
+        </div>
+
+        <div class="work-item">
+          <div class="work-thumb">
+            <div class="placeholder"></div>
+          </div>
+          <p class="work-caption">MilK MAGAZINE japon No.44</p>
+        </div>
+
+        <div class="work-item">
+          <div class="work-thumb">
+            <div class="placeholder"></div>
+          </div>
+          <p class="work-caption">MilK MAGAZINE japon No.43</p>
+        </div>
+
+        <div class="work-item">
+          <div class="work-thumb">
+            <div class="placeholder"></div>
+          </div>
+          <p class="work-caption">MilK MAGAZINE japon No.42</p>
+        </div>
+
+        <div class="work-item">
+          <div class="work-thumb">
+            <div class="placeholder"></div>
+          </div>
+          <p class="work-caption">MilK MAGAZINE japon Web</p>
+        </div>
+
+        <div class="work-item">
+          <div class="work-thumb">
+            <div class="placeholder"></div>
+          </div>
+          <p class="work-caption">UDG.,co.ltd</p>
+        </div>
+
+        <div class="work-item">
+          <div class="work-thumb">
+            <div class="placeholder"></div>
+          </div>
+          <p class="work-caption">MilK MAGAZINE japon No.41</p>
+        </div>
+
+        <div class="work-item">
+          <div class="work-thumb">
+            <div class="placeholder"></div>
+          </div>
+          <p class="work-caption">MilK MAGAZINE japon No.40</p>
+        </div>
+
+        <div class="work-item">
+          <div class="work-thumb">
+            <div class="placeholder"></div>
+          </div>
+          <p class="work-caption">MilK MAGAZINE japon No.39</p>
+        </div>
+
+      </div>
+    </main>
+
+    <footer>
+      <p>© Fumiko Cho</p>
+    </footer>
+  </div>
+</body>
+</html>
