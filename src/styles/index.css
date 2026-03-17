@@ -63,11 +63,12 @@
 }
 
 .work-caption {
-  margin-top: 10px;
-  font-size: 10px;
+  margin-top: 0;
+  font-size: 12px;
+  line-height: 27px;
   font-weight: 300;
   letter-spacing: 0.06em;
-  color: var(--color-text);
+  color: #000000;
 }
 
 @media (max-width: 600px) {
