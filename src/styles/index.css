@@ -5,7 +5,8 @@
 .works-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 48px 32px;
+  row-gap: 53px; /* 80px (thumbnail gap) - 27px (caption line-height) */
+  column-gap: 80px;
 }
 
 .work-item {
