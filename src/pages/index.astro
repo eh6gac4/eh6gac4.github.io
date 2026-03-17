@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
 import PasswordOverlay from '../components/PasswordOverlay.astro';
 import { works } from '../data/works';
 import '../styles/index.css';
@@ -7,16 +8,7 @@ import '../styles/index.css';
 
 <Layout>
   <div class="site-wrapper">
-    <header>
-      <div class="header-left">
-        <h1>Fumiko Cho</h1>
-        <p>Art Direction / Design</p>
-      </div>
-      <nav>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </header>
+    <SiteHeader />
 
     <main class="works">
       <div class="works-grid">
