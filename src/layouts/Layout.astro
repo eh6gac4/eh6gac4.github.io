@@ -1,4 +1,5 @@
 ---
+import '../styles/global.css';
 interface Props {
   title?: string;
 }
@@ -17,34 +18,6 @@ const { title = 'FUMIKO CHO — Art Direction / Design' } = Astro.props;
       href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400&family=DM+Mono:wght@300&display=swap"
       rel="stylesheet"
     />
-    <style is:global>
-      *, *::before, *::after {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
-
-      :root {
-        --color-bg: #ffffff;
-        --color-text: #111111;
-        --color-muted: #888888;
-        --color-border: #e8e8e8;
-        --font-main: 'DM Sans', sans-serif;
-        --font-mono: 'DM Mono', monospace;
-      }
-
-      html {
-        font-size: 14px;
-      }
-
-      body {
-        background: var(--color-bg);
-        color: var(--color-text);
-        font-family: var(--font-main);
-        font-weight: 300;
-        min-height: 100vh;
-      }
-    </style>
   </head>
   <body>
     <slot />
