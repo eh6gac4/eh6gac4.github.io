@@ -105,12 +105,6 @@ footer p {
     padding: 0 24px;
   }
   nav {
-    top: 24px;
-    right: 24px;
-    flex-direction: row;
-    gap: 16px;
-  }
-  nav a {
-    writing-mode: horizontal-tb;
+    display: none;
   }
 }
