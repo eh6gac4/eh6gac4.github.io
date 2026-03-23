@@ -1,6 +1,7 @@
 export interface Work {
   slug: string;
   title: string;
+  date?: string;        // yyyy.MM 形式
   image?: string;       // TOPのサムネイル
   tags?: string[];      // カテゴリタグ
   images?: string[];    // 詳細ページのサブ画像
@@ -15,7 +16,8 @@ export const works: Work[] = [
   { slug: 'milk-no43', title: 'MilK MAGAZINE japon No.43' },
   {
     slug: 'milk-no42',
-    title: 'MilK MAGAZINE japon No.42',
+    title: 'MilK MAGAZINE japon no.42',
+    date: '2021.04',
     image: '/images/milk-no42/cover.jpg',
     tags: ['Editorial Design', 'Web Design'],
     images: [

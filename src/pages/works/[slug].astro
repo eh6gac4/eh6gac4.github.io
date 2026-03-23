@@ -28,9 +28,9 @@ const current = index + 1;
             <p class="work-detail-tags">{work.tags.join(', ')}</p>
           )}
         </div>
-        <p class="work-detail-pagination">
-          {String(current).padStart(2, '0')}/{String(total).padStart(2, '0')}
-        </p>
+        {work.date && (
+          <p class="work-detail-pagination">{work.date}</p>
+        )}
       </div>
 
       {work.image && (
