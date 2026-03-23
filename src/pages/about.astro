@@ -1,44 +1,37 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import SiteHeader from '../components/SiteHeader.astro';
+import PasswordOverlay from '../components/PasswordOverlay.astro';
 ---
 
 <Layout title="About — Fumiko Cho">
   <div class="site-wrapper">
-    <SiteHeader />
+    <SiteHeader showClose />
 
-    <main class="page-content">
-      <h2>About</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-      <p>Tokyo-based art director and designer with a focus on visual communication, brand identity, and editorial design.</p>
+    <main class="about">
+      <p class="about-bio">
+        Freelance since 2019.<br />
+        Primarily works on graphic and web design for kids, beauty, and fashion.
+      </p>
     </main>
 
     <footer>
       <p>© Fumiko Cho</p>
     </footer>
   </div>
+
+  <PasswordOverlay />
 </Layout>
 
 <style>
-  .page-content {
-    margin-top: 120px;
-    max-width: 480px;
+  .about {
+    margin-top: 100px;
   }
 
-  .page-content h2 {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    margin-bottom: 40px;
-    color: var(--color-muted);
-  }
-
-  .page-content p {
-    font-size: 14px;
+  .about-bio {
+    font-size: 12px;
     font-weight: 300;
-    line-height: 1.8;
-    color: var(--color-text);
-    margin-bottom: 20px;
+    line-height: 1.9;
+    color: var(--color-subtitle);
   }
 </style>

@@ -1,11 +1,20 @@
 ---
-const { current } = Astro.props;
+const { current, showClose } = Astro.props;
 ---
+
+{showClose && (
+  <a href="/" class="close-btn" aria-label="Close">
+    <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="0" y1="0" x2="10" y2="10" stroke="currentColor" stroke-width="1"/>
+      <line x1="10" y1="0" x2="0" y2="10" stroke="currentColor" stroke-width="1"/>
+    </svg>
+  </a>
+)}
 
 <header>
   <div class="header-left">
     <h1><a href="/">Fumiko Cho</a></h1>
-    <p>Art Direction / Design</p>
+    <p>Art Direction / Graphic Design / Web Design</p>
   </div>
   <nav>
     <a href="/about">About</a>
@@ -38,6 +47,27 @@ const { current } = Astro.props;
 </script>
 
 <style>
+  .close-btn {
+    position: fixed;
+    top: 32px;
+    left: 32px;
+    color: var(--color-subtitle);
+    text-decoration: none;
+    display: block;
+    z-index: 100;
+  }
+
+  .close-btn:hover {
+    color: var(--color-text);
+  }
+
+  @media (max-width: 600px) {
+    .close-btn {
+      top: 24px;
+      left: 24px;
+    }
+  }
+
   .hamburger {
     display: none;
   }
