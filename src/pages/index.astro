@@ -13,7 +13,7 @@ import '../styles/index.css';
     <main class="works">
       <div class="works-grid">
         {works.map((work) => (
-          <div class="work-item">
+          <a class="work-item" href={`/works/${work.slug}`}>
             <div class="work-thumb">
               {work.image ? (
                 <img src={work.image} alt={work.title} />
@@ -22,7 +22,7 @@ import '../styles/index.css';
               )}
             </div>
             <p class="work-caption">{work.title}</p>
-          </div>
+          </a>
         ))}
       </div>
     </main>

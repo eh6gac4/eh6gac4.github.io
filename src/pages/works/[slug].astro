@@ -1,0 +1,143 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+import PasswordOverlay from '../../components/PasswordOverlay.astro';
+import { works } from '../../data/works';
+
+export function getStaticPaths() {
+  return works.map((work) => ({ params: { slug: work.slug } }));
+}
+
+const { slug } = Astro.params;
+const index = works.findIndex((w) => w.slug === slug);
+const work = works[index];
+const total = works.length;
+const current = index + 1;
+---
+
+<Layout title={`${work.title} — Fumiko Cho`}>
+  <div class="site-wrapper">
+    <SiteHeader showClose navOnly />
+
+    <main class="work-detail">
+
+      <div class="work-detail-header">
+        <div>
+          <h2 class="work-detail-title">{work.title}</h2>
+          {work.tags && work.tags.length > 0 && (
+            <p class="work-detail-tags">{work.tags.join(', ')}</p>
+          )}
+        </div>
+        <p class="work-detail-pagination">
+          {String(current).padStart(2, '0')}/{String(total).padStart(2, '0')}
+        </p>
+      </div>
+
+      {work.image && (
+        <div class="work-detail-hero">
+          <img src={work.image} alt={work.title} />
+        </div>
+      )}
+
+      {work.images && work.images.length > 0 && (
+        <div class="work-detail-grid">
+          {work.images.map((src) => (
+            <div class="work-detail-sub">
+              <img src={src} alt={work.title} />
+            </div>
+          ))}
+        </div>
+      )}
+
+    </main>
+
+    <footer>
+      <p>© Fumiko Cho</p>
+    </footer>
+  </div>
+
+  <PasswordOverlay />
+</Layout>
+
+<style>
+  .work-detail {
+    margin-top: 100px;
+    margin-bottom: 120px;
+  }
+
+  .work-detail-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 40px;
+  }
+
+  .work-detail-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--color-text);
+    margin-bottom: 6px;
+  }
+
+  .work-detail-tags {
+    font-size: 10px;
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    color: var(--color-subtitle);
+  }
+
+  .work-detail-pagination {
+    font-size: 10px;
+    font-weight: 300;
+    letter-spacing: 0.08em;
+    color: var(--color-subtitle);
+    white-space: nowrap;
+    padding-top: 2px;
+  }
+
+  /* ヒーロー: 左寄せ・A4縦比率・コンテンツ幅の約45% */
+  .work-detail-hero {
+    width: 45%;
+    aspect-ratio: 210 / 297;
+    overflow: hidden;
+    margin-bottom: 32px;
+  }
+
+  .work-detail-hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* サブ画像: 2列グリッド・横長（見開き比率） */
+  .work-detail-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .work-detail-sub {
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: var(--color-border);
+  }
+
+  .work-detail-sub img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  @media (max-width: 600px) {
+    .work-detail-hero {
+      width: 100%;
+    }
+
+    .work-detail-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

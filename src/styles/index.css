@@ -10,6 +10,8 @@
 }
 
 .work-item {
+  text-decoration: none;
+  color: inherit;
   cursor: pointer;
   opacity: 0;
   transform: translateY(16px);
