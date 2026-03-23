@@ -37,7 +37,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  padding: 48px 0 0;
+  padding: 96px 0 0;
 }
 
 .header-left h1 {
@@ -62,8 +62,8 @@ header {
 
 nav {
   position: fixed;
-  top: 48px;
-  right: 40px;
+  top: 32px;
+  right: 32px;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
