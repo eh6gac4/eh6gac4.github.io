@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
 import PasswordOverlay from '../components/PasswordOverlay.astro';
 import { works } from '../data/works';
 import '../styles/index.css';
@@ -12,8 +13,8 @@ import '../styles/index.css';
 
     <main class="works">
       <div class="works-grid">
-        {works.map((work) => (
-          <a class="work-item" href={`/works/${work.slug}`}>
+        {works.map((work, i) => (
+          <a class="work-item" href={`/works/${work.slug}`} style={`animation-delay: ${(i + 1) * 0.05}s`}>
             <div class="work-thumb">
               {work.image ? (
                 <img src={work.image} alt={work.title} />
@@ -27,9 +28,7 @@ import '../styles/index.css';
       </div>
     </main>
 
-    <footer>
-      <p>© Fumiko Cho</p>
-    </footer>
+    <SiteFooter />
   </div>
 
   <PasswordOverlay />

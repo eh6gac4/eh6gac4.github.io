@@ -25,8 +25,12 @@ npm install <package>  # 依存パッケージ追加
 ```
 src/
   layouts/Layout.astro        # ベースレイアウト（フォント・CSS変数定義）
-  pages/index.astro           # メインページ（唯一のルート）
+  pages/index.astro           # TOP（作品一覧）
+  pages/about.astro           # About ページ
+  pages/works/[slug].astro    # 作品詳細ページ（動的ルート）
   components/
+    SiteHeader.astro          # ヘッダー（ナビ・ハンバーガー・閉じるボタン）
+    SiteFooter.astro          # フッター
     PasswordOverlay.astro     # パスワードロック（sessionStorage 使用）
   data/
     works.ts                  # 作品一覧データ（ここを編集して作品を管理）
@@ -37,7 +41,7 @@ public/
 
 ## デザイン方針
 
-- フォント: DM Sans（本文）/ DM Mono（monospace）
+- フォント: Montserrat（本文）/ DM Mono（monospace）
 - カラー: `--color-bg: #fff`, `--color-text: #111`, `--color-muted: #888`, `--color-border: #e8e8e8`
 - ベースフォントサイズ: 14px（ラベル・キャプションは 10–11px）
 - 余白・アニメーション: 控えめで静的なデザインを維持すること
@@ -48,7 +52,14 @@ public/
 `src/data/works.ts` の配列を編集する。画像がある場合は `public/images/` に置き `image` フィールドで指定。
 
 ```ts
-{ title: '作品タイトル', image: '/images/work.jpg' }
+{
+  slug: 'work-slug',
+  title: '作品タイトル',
+  date: '2024.04',          // 任意: yyyy.MM 形式
+  image: '/images/work.jpg', // 任意: TOPサムネイル
+  tags: ['Editorial Design'], // 任意: カテゴリタグ
+  images: ['/images/...'],   // 任意: 詳細ページのサブ画像
+}
 ```
 
 ## パスワード

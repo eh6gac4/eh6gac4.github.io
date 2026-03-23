@@ -1,5 +1,9 @@
 ---
-const { current, showClose, navOnly } = Astro.props;
+interface Props {
+  showClose?: boolean;
+  navOnly?: boolean;
+}
+const { showClose, navOnly } = Astro.props;
 ---
 
 {showClose && (

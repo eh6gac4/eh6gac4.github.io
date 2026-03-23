@@ -18,18 +18,6 @@
   animation: fadeUp 0.6s ease forwards;
 }
 
-.work-item:nth-child(1)  { animation-delay: 0.05s; }
-.work-item:nth-child(2)  { animation-delay: 0.10s; }
-.work-item:nth-child(3)  { animation-delay: 0.15s; }
-.work-item:nth-child(4)  { animation-delay: 0.20s; }
-.work-item:nth-child(5)  { animation-delay: 0.25s; }
-.work-item:nth-child(6)  { animation-delay: 0.30s; }
-.work-item:nth-child(7)  { animation-delay: 0.35s; }
-.work-item:nth-child(8)  { animation-delay: 0.40s; }
-.work-item:nth-child(9)  { animation-delay: 0.45s; }
-.work-item:nth-child(10) { animation-delay: 0.50s; }
-.work-item:nth-child(11) { animation-delay: 0.55s; }
-.work-item:nth-child(12) { animation-delay: 0.60s; }
 
 @keyframes fadeUp {
   to {
