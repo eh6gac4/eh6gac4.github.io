@@ -16,11 +16,12 @@ const current = index + 1;
 ---
 
 <Layout title={`${work.title} — Fumiko Cho`}>
+
+  <!-- ヘッダー部分: 白背景 -->
   <div class="site-wrapper">
     <SiteHeader showClose navOnly />
 
-    <main class="work-detail">
-
+    <section class="work-detail-header-section">
       <div class="work-detail-header">
         <div>
           <h2 class="work-detail-title">{work.title}</h2>
@@ -32,25 +33,35 @@ const current = index + 1;
           <p class="work-detail-pagination">{work.date}</p>
         )}
       </div>
+    </section>
+  </div>
 
-      {work.image && (
-        <div class="work-detail-hero">
-          <img src={work.image} alt={work.title} />
-        </div>
-      )}
+  <!-- 画像部分: #E7E6E4 背景（全幅） -->
+  <div class="work-images-bg">
+    <div class="site-wrapper">
+      <div class="work-images-inner">
 
-      {work.images && work.images.length > 0 && (
-        <div class="work-detail-grid">
-          {work.images.map((src) => (
-            <div class="work-detail-sub">
-              <img src={src} alt={work.title} />
-            </div>
-          ))}
-        </div>
-      )}
+        {work.image && (
+          <div class="work-detail-hero">
+            <img src={work.image} alt={work.title} />
+          </div>
+        )}
 
-    </main>
+        {work.images && work.images.length > 0 && (
+          <div class="work-detail-grid">
+            {work.images.map((src) => (
+              <div class="work-detail-sub">
+                <img src={src} alt={work.title} />
+              </div>
+            ))}
+          </div>
+        )}
 
+      </div>
+    </div>
+  </div>
+
+  <div class="site-wrapper">
     <footer>
       <p>© Fumiko Cho</p>
     </footer>
@@ -60,16 +71,15 @@ const current = index + 1;
 </Layout>
 
 <style>
-  .work-detail {
+  .work-detail-header-section {
     margin-top: 100px;
-    margin-bottom: 120px;
+    padding-bottom: 60px;
   }
 
   .work-detail-header {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    margin-bottom: 40px;
   }
 
   .work-detail-title {
@@ -96,18 +106,23 @@ const current = index + 1;
     padding-top: 2px;
   }
 
-  /* ヒーロー: 左寄せ・A4縦比率・コンテンツ幅の約45% */
+  /* 画像セクション: 全幅グレー背景 */
+  .work-images-bg {
+    background: #E7E6E4;
+    width: 100%;
+  }
+
+  .work-images-inner {
+    padding: 60px 0 80px;
+  }
+
   .work-detail-hero {
-    width: 45%;
-    aspect-ratio: 210 / 297;
-    overflow: hidden;
     margin-bottom: 32px;
   }
 
   .work-detail-hero img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto;
     display: block;
   }
 
@@ -118,16 +133,9 @@ const current = index + 1;
     gap: 16px;
   }
 
-  .work-detail-sub {
-    aspect-ratio: 16 / 9;
-    overflow: hidden;
-    background: var(--color-border);
-  }
-
   .work-detail-sub img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto;
     display: block;
   }
 
