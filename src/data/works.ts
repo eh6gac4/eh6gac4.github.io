@@ -9,16 +9,16 @@ export interface Work {
 
 export const works: Work[] = [
   { slug: 'milk-no51', title: 'MilK MAGAZINE japon No.51' },
-  { slug: 'milk-no50', title: 'MilK MAGAZINE japon No.50' },
-  { slug: 'milk-no49', title: 'MilK MAGAZINE japon No.49' },
-  { slug: 'milk-no48', title: 'MilK MAGAZINE japon No.48' },
-  { slug: 'milk-no44', title: 'MilK MAGAZINE japon No.44' },
-  { slug: 'milk-no43', title: 'MilK MAGAZINE japon No.43' },
+  { slug: 'milk-no50', title: 'MilK MAGAZINE japon No.50', image: '/images/top/milk_no50.jpg' },
+  { slug: 'milk-no49', title: 'MilK MAGAZINE japon No.49', image: '/images/top/milk_no49.jpg' },
+  { slug: 'milk-no48', title: 'MilK MAGAZINE japon No.48', image: '/images/top/milk_no48.jpg' },
+  { slug: 'milk-no44', title: 'MilK MAGAZINE japon No.44', image: '/images/top/milk_no44.jpg' },
+  { slug: 'milk-no43', title: 'MilK MAGAZINE japon No.43', image: '/images/top/milk_no43.jpg' },
   {
     slug: 'milk-no42',
     title: 'MilK MAGAZINE japon no.42',
     date: '2021.04',
-    image: '/images/milk-no42/cover.jpg',
+    image: '/images/top/milk_no42.jpg',
     tags: ['Editorial Design', 'Web Design'],
     images: [
       '/images/milk-no42/spread_01.jpg',
@@ -31,9 +31,9 @@ export const works: Work[] = [
       '/images/milk-no42/spread_08.jpg',
     ],
   },
-  { slug: 'milk-web',  title: 'MilK MAGAZINE japon Web' },
-  { slug: 'udg',       title: 'UDG.,co.ltd' },
-  { slug: 'milk-no41', title: 'MilK MAGAZINE japon No.41' },
-  { slug: 'milk-no40', title: 'MilK MAGAZINE japon No.40' },
-  { slug: 'milk-no39', title: 'MilK MAGAZINE japon No.39' },
+  { slug: 'milk-web',  title: 'MilK MAGAZINE japon Web',  image: '/images/top/milk_web.jpg' },
+  { slug: 'udg',       title: 'UDG.,co.ltd',              image: '/images/top/udg_co_ltd.jpg' },
+  { slug: 'milk-no41', title: 'MilK MAGAZINE japon No.41', image: '/images/top/milk_no41.jpg' },
+  { slug: 'milk-no40', title: 'MilK MAGAZINE japon No.40', image: '/images/top/milk_no40.jpg' },
+  { slug: 'milk-no39', title: 'MilK MAGAZINE japon No.39', image: '/images/top/milk_no39.jpg' },
 ];
