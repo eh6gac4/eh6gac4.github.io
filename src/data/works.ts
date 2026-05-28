@@ -9,7 +9,7 @@ export interface Work {
 }
 
 export const works: Work[] = [
-  { slug: 'milk-no51', title: 'MilK MAGAZINE japon No.51' },
+  { slug: 'milk-no51', title: 'MilK MAGAZINE japon No.51', thumbnail: '/images/top/milk_no51.jpg' },
   { slug: 'milk-no50', title: 'MilK MAGAZINE japon No.50', thumbnail: '/images/top/milk_no50.jpg' },
   { slug: 'milk-no49', title: 'MilK MAGAZINE japon No.49', thumbnail: '/images/top/milk_no49.jpg' },
   { slug: 'milk-no48', title: 'MilK MAGAZINE japon No.48', thumbnail: '/images/top/milk_no48.jpg' },
