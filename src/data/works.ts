@@ -6,6 +6,8 @@ export interface Work {
   cover?: string;       // 詳細ページのメイン画像
   tags?: string[];      // カテゴリタグ
   images?: string[];    // 詳細ページのサブ画像
+  desktop?: string;     // webレイアウト: デスクトップスクリーンショット
+  mobile?: string;      // webレイアウト: モバイルスクリーンショット
 }
 
 export const works: Work[] = [
@@ -33,7 +35,15 @@ export const works: Work[] = [
       '/images/milk-no42/spread_08.jpg',
     ],
   },
-  { slug: 'milk-web',  title: 'MilK MAGAZINE japon Web',  thumbnail: '/images/top/milk_web.jpg' },
+  {
+    slug: 'milk-web',
+    title: 'MilK MAGAZINE japon Web',
+    thumbnail: '/images/top/milk_web.jpg',
+    tags: ['Web Design'],
+    desktop: '/images/milk-web/desktop.jpg',
+    mobile: '/images/milk-web/mobile.jpg',
+    images: [],
+  },
   { slug: 'udg',       title: 'UDG.,co.ltd',              thumbnail: '/images/top/udg_co_ltd.jpg' },
   { slug: 'milk-no41', title: 'MilK MAGAZINE japon No.41', thumbnail: '/images/top/milk_no41.jpg' },
   { slug: 'milk-no40', title: 'MilK MAGAZINE japon No.40', thumbnail: '/images/top/milk_no40.jpg' },

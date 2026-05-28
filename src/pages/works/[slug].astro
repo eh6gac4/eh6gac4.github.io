@@ -40,25 +40,35 @@ const current = index + 1;
   <!-- 画像部分: #E7E6E4 背景（全幅） -->
   <div class="work-images-bg">
     <div class="site-wrapper">
-      <div class="work-images-inner">
 
-        {work.cover && (
-          <div class="work-detail-hero">
-            <img src={work.cover} alt={work.title} />
-          </div>
-        )}
+      {(work.desktop || work.mobile) ? (
+        <!-- webレイアウト: 幅によってdesktop/mobile画像を切り替え -->
+        <div class="work-web-inner">
+          <picture class="work-web-image">
+            {work.mobile && <source media="(max-width: 600px)" srcset={work.mobile} />}
+            {work.desktop && <img src={work.desktop} alt={work.title} />}
+          </picture>
+        </div>
+      ) : (
+        <!-- エディトリアルレイアウト -->
+        <div class="work-images-inner">
+          {work.cover && (
+            <div class="work-detail-hero">
+              <img src={work.cover} alt={work.title} />
+            </div>
+          )}
+          {work.images && work.images.length > 0 && (
+            <div class="work-detail-grid">
+              {work.images.map((src) => (
+                <div class="work-detail-sub">
+                  <img src={src} alt={work.title} />
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      )}
 
-        {work.images && work.images.length > 0 && (
-          <div class="work-detail-grid">
-            {work.images.map((src) => (
-              <div class="work-detail-sub">
-                <img src={src} alt={work.title} />
-              </div>
-            ))}
-          </div>
-        )}
-
-      </div>
     </div>
   </div>
 
@@ -146,5 +156,20 @@ const current = index + 1;
     .work-detail-grid {
       grid-template-columns: 1fr;
     }
+  }
+
+  /* webレイアウト */
+  .work-web-inner {
+    padding: 60px 0 80px;
+  }
+
+  .work-web-image {
+    display: block;
+  }
+
+  .work-web-image img {
+    width: 100%;
+    height: auto;
+    display: block;
   }
 </style>
