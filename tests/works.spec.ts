@@ -19,6 +19,15 @@ test.describe('milk-web works page', () => {
   });
 });
 
+test.describe('udg works page (web layout + hero)', () => {
+  test('full page snapshot', async ({ page }) => {
+    await page.goto('/works/udg');
+    await skipPassword(page);
+    await page.waitForLoadState('networkidle');
+    await expect(page).toHaveScreenshot('udg.png', { fullPage: true });
+  });
+});
+
 test.describe('milk-no42 works page (editorial layout)', () => {
   test('full page snapshot', async ({ page }) => {
     await page.goto('/works/milk-no42');

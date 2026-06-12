@@ -44,6 +44,11 @@ const current = index + 1;
       {(work.desktop || work.mobile) ? (
         <!-- webレイアウト: 幅によってdesktop/mobile画像を切り替え -->
         <div class="work-web-inner">
+          {work.cover && (
+            <div class="work-web-hero">
+              <img src={work.cover} alt={work.title} />
+            </div>
+          )}
           <picture class="work-web-image">
             {work.mobile && <source media="(max-width: 600px)" srcset={work.mobile} />}
             {work.desktop && <img src={work.desktop} alt={work.title} />}
@@ -161,6 +166,24 @@ const current = index + 1;
   /* webレイアウト */
   .work-web-inner {
     padding: 60px 0 80px;
+  }
+
+  /* デバイスモックアップ（影は画像に含まれる） */
+  .work-web-hero {
+    width: 84%;
+    margin: 0 auto;
+  }
+
+  .work-web-hero img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  @media (max-width: 600px) {
+    .work-web-hero {
+      width: 100%;
+    }
   }
 
   .work-web-image {

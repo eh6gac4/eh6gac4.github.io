@@ -115,7 +115,16 @@ export const works: Work[] = [
     mobile: '/images/milk-web/mobile.jpg',
     images: [],
   },
-  { slug: 'udg',       title: 'UDG.,co.ltd',              thumbnail: '/images/top/udg_co_ltd.jpg' },
+  {
+    slug: 'udg',
+    title: 'UDG.,co.ltd',
+    date: '2021.04',
+    thumbnail: '/images/top/udg_co_ltd.jpg',
+    cover: '/images/udg/hero.png',
+    tags: ['Art Direction', 'Web Design'],
+    desktop: '/images/udg/desktop.jpg',
+    mobile: '/images/udg/mobile.jpg',
+  },
   {
     slug: 'milk-no41',
     title: 'MilK MAGAZINE japon No.41',
