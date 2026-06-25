@@ -10,13 +10,10 @@ export function getStaticPaths() {
 }
 
 const { slug } = Astro.params;
-const index = works.findIndex((w) => w.slug === slug);
-const work = works[index];
-const total = works.length;
-const current = index + 1;
+const work = works.find((w) => w.slug === slug)!;
 ---
 
-<Layout title={`${work.title} — Fumiko Cho`}>
+<Layout title={`${work.title} — Fumiko Cho`} description={work.title}>
 
   <!-- ヘッダー部分: 白背景 -->
   <div class="site-wrapper">
@@ -51,7 +48,7 @@ const current = index + 1;
           )}
           <picture class="work-web-image">
             {work.mobile && <source media="(max-width: 600px)" srcset={work.mobile} />}
-            {work.desktop && <img src={work.desktop} alt={work.title} />}
+            {work.desktop && <img src={work.desktop} alt={work.title} loading="lazy" />}
           </picture>
         </div>
       ) : (
@@ -66,7 +63,7 @@ const current = index + 1;
             <div class="work-detail-grid">
               {work.images.map((src) => (
                 <div class="work-detail-sub">
-                  <img src={src} alt={work.title} />
+                  <img src={src} alt={work.title} loading="lazy" />
                 </div>
               ))}
             </div>

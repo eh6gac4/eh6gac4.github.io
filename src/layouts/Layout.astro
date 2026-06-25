@@ -2,8 +2,16 @@
 import '../styles/global.css';
 interface Props {
   title?: string;
+  description?: string;
 }
-const { title = 'FUMIKO CHO — Art Direction / Design' } = Astro.props;
+const {
+  title = 'FUMIKO CHO — Art Direction / Design',
+  description = 'Portfolio of Fumiko Cho, freelance art director and designer specializing in graphic design, editorial design, and web design.',
+} = Astro.props;
+
+const siteUrl = 'https://eh6gac4.github.io';
+// og:image: 差し替える場合はここのパスを変更してください
+const ogImage = `${siteUrl}/images/top/milk_no51.jpg`;
 ---
 
 <!doctype html>
@@ -11,7 +19,21 @@ const { title = 'FUMIKO CHO — Art Direction / Design' } = Astro.props;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/favicon.png" />
     <title>{title}</title>
+    <meta name="description" content={description} />
+    <!-- OGP -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={siteUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
     <script is:inline>
       if (sessionStorage.getItem('fc_auth') !== 'true') {
         document.documentElement.classList.add('pw-required');
