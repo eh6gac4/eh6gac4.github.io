@@ -11,7 +11,7 @@
     "test:update": "playwright test --update-snapshots"
   },
   "dependencies": {
-    "astro": "^5.0.0"
+    "astro": "^6.4.6"
   },
   "devDependencies": {
     "@playwright/test": "^1.60.0"

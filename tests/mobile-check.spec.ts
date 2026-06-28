@@ -16,6 +16,11 @@
 
 import { test, expect } from '@playwright/test';
 
+// このファイルはモバイルレイアウト専用。mobile プロジェクト以外ではスキップする。
+test.beforeEach(({}, testInfo) => {
+  test.skip(testInfo.project.name !== 'mobile', 'mobile-only checks');
+});
+
 async function skipPassword(page: import('@playwright/test').Page) {
   await page.evaluate(() => sessionStorage.setItem('fc_auth', 'true'));
 }

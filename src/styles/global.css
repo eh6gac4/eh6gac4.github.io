@@ -45,8 +45,9 @@ header.nav-only {
 }
 
 .header-left h1 {
-  font-size: 11px;
-  font-weight: 700;
+  font-size: 18px;
+  font-weight: 600;
+  color: #000000;
   letter-spacing: 0.15em;
   text-transform: uppercase;
   margin-bottom: 40px;
@@ -58,9 +59,9 @@ header.nav-only {
 }
 
 .header-left p {
-  font-size: 11px;
-  font-weight: 300;
-  color: var(--color-subtitle);
+  font-size: 12px;
+  font-weight: 400;
+  color: #727171;
   letter-spacing: 0.05em;
 }
 
@@ -76,11 +77,11 @@ nav {
 }
 
 nav a {
-  font-size: 10px;
-  font-weight: 700;
+  font-size: 12px;
+  font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: capitalize;
-  color: var(--color-text);
+  color: #000000;
   text-decoration: none;
   writing-mode: vertical-rl;
   transition: color 0.2s;
@@ -98,10 +99,10 @@ footer {
 
 footer p {
   font-size: 10px;
-  font-weight: 300;
+  font-weight: 400;
   letter-spacing: 0.1em;
-  color: var(--color-muted);
-  font-family: var(--font-mono);
+  color: #727171;
+  font-family: var(--font-main);
   text-transform: uppercase;
 }
 
