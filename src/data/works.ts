@@ -90,11 +90,11 @@ export const works: Work[] = [
   },
   {
     slug: 'milk-no42',
-    title: 'MilK MAGAZINE japon no.42',
+    title: 'MilK MAGAZINE | japon no.42',
     date: '2021.04',
     thumbnail: '/images/top/milk_no42.jpg',
     cover: '/images/milk-no42/cover.jpg',
-    tags: ['Editorial Design', 'Web Design'],
+    tags: ['Editorial Design', 'WebDesign'],
     images: [
       '/images/milk-no42/spread_01.jpg',
       '/images/milk-no42/spread_02.jpg',
