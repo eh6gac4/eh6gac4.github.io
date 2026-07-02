@@ -5,6 +5,9 @@ import SiteFooter from '../components/SiteFooter.astro';
 import PasswordOverlay from '../components/PasswordOverlay.astro';
 import { works } from '../data/works';
 import '../styles/index.css';
+import { Image } from 'astro:assets';
+
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/**/*.{jpeg,jpg,png,gif}', { eager: true });
 ---
 
 <Layout>
@@ -13,18 +16,23 @@ import '../styles/index.css';
 
     <main class="works">
       <div class="works-grid">
-        {works.map((work, i) => (
-          <a class="work-item" href={`/works/${work.slug}`} style={`animation-delay: ${(i + 1) * 0.05}s`}>
-            <div class="work-thumb">
-              {work.thumbnail ? (
-                <img src={work.thumbnail} alt={work.title} loading="lazy" />
-              ) : (
-                <div class="placeholder" />
-              )}
-            </div>
-            <p class="work-caption">{work.title}</p>
-          </a>
-        ))}
+        {works.map((work, i) => {
+          const thumbPath = work.thumbnail ? `/src/assets${work.thumbnail}` : null;
+          const thumbImage = thumbPath ? images[thumbPath]?.default : null;
+          
+          return (
+            <a class="work-item" href={`/works/${work.slug}`} style={`animation-delay: ${(i + 1) * 0.05}s`}>
+              <div class="work-thumb">
+                {thumbImage ? (
+                  <Image src={thumbImage} alt={work.title} loading={i < 4 ? 'eager' : 'lazy'} fetchpriority={i < 4 ? 'high' : 'auto'} />
+                ) : (
+                  <div class="placeholder" />
+                )}
+              </div>
+              <p class="work-caption">{work.title}</p>
+            </a>
+          );
+        })}
       </div>
     </main>
 

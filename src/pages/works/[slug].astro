@@ -4,6 +4,10 @@ import SiteHeader from '../../components/SiteHeader.astro';
 import SiteFooter from '../../components/SiteFooter.astro';
 import PasswordOverlay from '../../components/PasswordOverlay.astro';
 import { works } from '../../data/works';
+import { Image } from 'astro:assets';
+
+const imagesGlob = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/**/*.{jpeg,jpg,png,gif}', { eager: true });
+const getImage = (path: string | undefined) => path ? imagesGlob[`/src/assets${path}`]?.default : null;
 
 export function getStaticPaths() {
   return works.map((work) => ({ params: { slug: work.slug } }));
@@ -43,12 +47,12 @@ const work = works.find((w) => w.slug === slug)!;
         <div class="work-web-inner">
           {work.cover && (
             <div class="work-web-hero">
-              <img src={work.cover} alt={work.title} />
+              <Image src={getImage(work.cover)!} alt={work.title} loading="eager" fetchpriority="high" />
             </div>
           )}
           <picture class="work-web-image">
-            {work.mobile && <source media="(max-width: 600px)" srcset={work.mobile} />}
-            {work.desktop && <img src={work.desktop} alt={work.title} loading="lazy" />}
+            {work.mobile && <source media="(max-width: 600px)" srcset={getImage(work.mobile)?.src} />}
+            {work.desktop && <Image src={getImage(work.desktop)!} alt={work.title} loading="lazy" />}
           </picture>
         </div>
       ) : (
@@ -56,14 +60,14 @@ const work = works.find((w) => w.slug === slug)!;
         <div class="work-images-inner">
           {work.cover && (
             <div class="work-detail-hero">
-              <img src={work.cover} alt={work.title} />
+              <Image src={getImage(work.cover)!} alt={work.title} loading="eager" fetchpriority="high" />
             </div>
           )}
           {work.images && work.images.length > 0 && (
             <div class="work-detail-grid">
-              {work.images.map((src) => (
+              {work.images.map((src, idx) => (
                 <div class="work-detail-sub">
-                  <img src={src} alt={work.title} loading="lazy" />
+                  <Image src={getImage(src)!} alt={work.title} loading={idx < 2 && !work.cover ? 'eager' : 'lazy'} fetchpriority={idx < 2 && !work.cover ? 'high' : 'auto'} />
                 </div>
               ))}
             </div>
