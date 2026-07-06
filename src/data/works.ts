@@ -110,6 +110,7 @@ export const works: Work[] = [
     slug: 'milk-web',
     title: 'MilK MAGAZINE japon Web',
     thumbnail: '/images/top/milk_web.jpg',
+    cover: '/images/milk-web/cover.jpg',
     tags: ['Web Design'],
     desktop: '/images/milk-web/desktop.jpg',
     mobile: '/images/milk-web/mobile.jpg',
