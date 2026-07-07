@@ -16,6 +16,7 @@ export const works: Work[] = [
     title: 'MilK MAGAZINE japon No.51',
     thumbnail: '/images/top/milk_no51.jpg',
     cover: '/images/milk-no51/cover.jpg',
+    tags: ['Editorial Design'],
     images: [
       '/images/milk-no51/spread_01.png',
       '/images/milk-no51/spread_02.png',
@@ -30,6 +31,7 @@ export const works: Work[] = [
     title: 'MilK MAGAZINE japon No.50',
     thumbnail: '/images/top/milk_no50.jpg',
     cover: '/images/milk-no50/cover.jpg',
+    tags: ['Editorial Design'],
     images: [
       '/images/milk-no50/spread_01.png',
       '/images/milk-no50/spread_02.png',
@@ -40,6 +42,7 @@ export const works: Work[] = [
     title: 'MilK MAGAZINE japon No.49',
     thumbnail: '/images/top/milk_no49.jpg',
     cover: '/images/milk-no49/cover.jpg',
+    tags: ['Editorial Design'],
     images: [
       '/images/milk-no49/spread_01.png',
       '/images/milk-no49/spread_02.png',
@@ -54,6 +57,7 @@ export const works: Work[] = [
     title: 'MilK MAGAZINE japon No.48',
     thumbnail: '/images/top/milk_no48.jpg',
     cover: '/images/milk-no48/cover.jpg',
+    tags: ['Editorial Design'],
     images: [
       '/images/milk-no48/spread_01.png',
       '/images/milk-no48/spread_02.png',
@@ -65,6 +69,7 @@ export const works: Work[] = [
     title: 'MilK MAGAZINE japon No.44',
     thumbnail: '/images/top/milk_no44.jpg',
     cover: '/images/milk-no44/cover.jpg',
+    tags: ['Editorial Design'],
     images: [
       '/images/milk-no44/spread_01.png',
       '/images/milk-no44/spread_02.png',
@@ -79,6 +84,7 @@ export const works: Work[] = [
     title: 'MilK MAGAZINE japon No.43',
     thumbnail: '/images/top/milk_no43.jpg',
     cover: '/images/milk-no43/cover.jpg',
+    tags: ['Editorial Design'],
     images: [
       '/images/milk-no43/spread_01.png',
       '/images/milk-no43/spread_02.png',
@@ -94,7 +100,7 @@ export const works: Work[] = [
     date: '2021.04',
     thumbnail: '/images/top/milk_no42.jpg',
     cover: '/images/milk-no42/cover.jpg',
-    tags: ['Editorial Design', 'WebDesign'],
+    tags: ['Editorial Design'],
     images: [
       '/images/milk-no42/spread_01.jpg',
       '/images/milk-no42/spread_02.jpg',
@@ -130,6 +136,7 @@ export const works: Work[] = [
     title: 'MilK MAGAZINE japon No.41',
     thumbnail: '/images/top/milk_no41.jpg',
     cover: '/images/milk-no41/cover.jpg',
+    tags: ['Editorial Design'],
     images: [
       '/images/milk-no41/spread_01.png',
       '/images/milk-no41/spread_02.png',
@@ -144,6 +151,7 @@ export const works: Work[] = [
     title: 'MilK MAGAZINE japon No.40',
     thumbnail: '/images/top/milk_no40.jpg',
     cover: '/images/milk-no40/cover.jpg',
+    tags: ['Editorial Design'],
     images: [
       '/images/milk-no40/spread_01.png',
       '/images/milk-no40/spread_02.png',
@@ -157,6 +165,7 @@ export const works: Work[] = [
     slug: 'milk-no39',
     title: 'MilK MAGAZINE japon No.39',
     thumbnail: '/images/top/milk_no39.jpg',
+    tags: ['Editorial Design'],
     images: [
       '/images/milk-no39/spread_01.png',
       '/images/milk-no39/spread_02.png',
