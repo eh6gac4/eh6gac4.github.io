@@ -64,6 +64,9 @@
 }
 
 @media (max-width: 600px) {
+  .works {
+    margin-top: 80px;
+  }
   .works-grid {
     grid-template-columns: 1fr;
     gap: 36px;
