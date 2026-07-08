@@ -113,4 +113,10 @@ footer p {
   nav {
     display: none;
   }
+  header {
+    padding-top: 76px;
+  }
+  .header-left h1 {
+    margin-bottom: 25px;
+  }
 }
