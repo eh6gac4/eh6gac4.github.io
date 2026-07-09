@@ -142,8 +142,6 @@ export const works: Work[] = [
     thumbnail: '/images/top/udg_co_ltd.jpg',
     cover: '/images/udg/hero.jpg',
     tags: ['Art Direction', 'Web Design'],
-    desktop: '/images/udg/desktop.jpg',
-    mobile: '/images/udg/mobile.jpg',
   },
   {
     slug: 'milk-no41',
