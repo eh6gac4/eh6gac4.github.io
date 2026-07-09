@@ -14,6 +14,7 @@ export const works: Work[] = [
   {
     slug: 'milk-no51',
     title: 'MilK MAGAZINE japon No.51',
+    date: '2026.04',
     thumbnail: '/images/top/milk_no51.jpg',
     cover: '/images/milk-no51/cover.jpg',
     tags: ['Editorial Design'],
@@ -29,17 +30,21 @@ export const works: Work[] = [
   {
     slug: 'milk-no50',
     title: 'MilK MAGAZINE japon No.50',
+    date: '2025.10',
     thumbnail: '/images/top/milk_no50.jpg',
     cover: '/images/milk-no50/cover.jpg',
     tags: ['Editorial Design'],
     images: [
-      '/images/milk-no50/spread_01.png',
-      '/images/milk-no50/spread_02.png',
+      '/images/milk-no50/Mj50_1-2.png',
+      '/images/milk-no50/Mj50_1-3.png',
+      '/images/milk-no50/Mj50_1-4.png',
+      '/images/milk-no50/Mj50_1-5.png',
     ],
   },
   {
     slug: 'milk-no49',
     title: 'MilK MAGAZINE japon No.49',
+    date: '2025.04',
     thumbnail: '/images/top/milk_no49.jpg',
     cover: '/images/milk-no49/cover.jpg',
     tags: ['Editorial Design'],
@@ -55,18 +60,20 @@ export const works: Work[] = [
   {
     slug: 'milk-no48',
     title: 'MilK MAGAZINE japon No.48',
+    date: '2024.10',
     thumbnail: '/images/top/milk_no48.jpg',
     cover: '/images/milk-no48/cover.jpg',
     tags: ['Editorial Design'],
     images: [
-      '/images/milk-no48/spread_01.png',
-      '/images/milk-no48/spread_02.png',
-      '/images/milk-no48/spread_03.png',
+      '/images/milk-no48/MJ48_0-1.png',
+      '/images/milk-no48/MJ48_1-2.png',
+      '/images/milk-no48/MJ48_4.png',
     ],
   },
   {
     slug: 'milk-no44',
     title: 'MilK MAGAZINE japon No.44',
+    date: '2022.04',
     thumbnail: '/images/top/milk_no44.jpg',
     cover: '/images/milk-no44/cover.jpg',
     tags: ['Editorial Design'],
@@ -82,6 +89,7 @@ export const works: Work[] = [
   {
     slug: 'milk-no43',
     title: 'MilK MAGAZINE japon No.43',
+    date: '2022.10',
     thumbnail: '/images/top/milk_no43.jpg',
     cover: '/images/milk-no43/cover.jpg',
     tags: ['Editorial Design'],
@@ -116,6 +124,7 @@ export const works: Work[] = [
     slug: 'milk-web',
     title: 'MilK MAGAZINE japon Web',
     thumbnail: '/images/top/milk_web.jpg',
+    cover: '/images/milk-web/cover.jpg',
     tags: ['Web Design'],
     desktop: '/images/milk-web/desktop.jpg',
     mobile: '/images/milk-web/mobile.jpg',
@@ -126,7 +135,7 @@ export const works: Work[] = [
     title: 'UDG.,co.ltd',
     date: '2021.04',
     thumbnail: '/images/top/udg_co_ltd.jpg',
-    cover: '/images/udg/hero.png',
+    cover: '/images/udg/hero.jpg',
     tags: ['Art Direction', 'Web Design'],
     desktop: '/images/udg/desktop.jpg',
     mobile: '/images/udg/mobile.jpg',
@@ -134,6 +143,7 @@ export const works: Work[] = [
   {
     slug: 'milk-no41',
     title: 'MilK MAGAZINE japon No.41',
+    date: '2020.10',
     thumbnail: '/images/top/milk_no41.jpg',
     cover: '/images/milk-no41/cover.jpg',
     tags: ['Editorial Design'],
@@ -149,6 +159,7 @@ export const works: Work[] = [
   {
     slug: 'milk-no40',
     title: 'MilK MAGAZINE japon No.40',
+    date: '2020.04',
     thumbnail: '/images/top/milk_no40.jpg',
     cover: '/images/milk-no40/cover.jpg',
     tags: ['Editorial Design'],
@@ -164,6 +175,7 @@ export const works: Work[] = [
   {
     slug: 'milk-no39',
     title: 'MilK MAGAZINE japon No.39',
+    date: '2019.10',
     thumbnail: '/images/top/milk_no39.jpg',
     tags: ['Editorial Design'],
     images: [
