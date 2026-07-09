@@ -177,6 +177,7 @@ export const works: Work[] = [
     title: 'MilK MAGAZINE japon No.39',
     date: '2019.10',
     thumbnail: '/images/top/milk_no39.jpg',
+    cover: '/images/milk-no39/cover.jpg',
     tags: ['Editorial Design'],
     images: [
       '/images/milk-no39/spread_01.png',
