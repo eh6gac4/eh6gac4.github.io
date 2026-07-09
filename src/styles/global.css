@@ -119,4 +119,7 @@ footer p {
   .header-left h1 {
     margin-bottom: 44px;
   }
+  footer {
+    margin-top: 110px;
+  }
 }
