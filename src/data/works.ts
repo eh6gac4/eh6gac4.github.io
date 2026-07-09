@@ -35,6 +35,8 @@ export const works: Work[] = [
     cover: '/images/milk-no50/cover.jpg',
     tags: ['Editorial Design'],
     images: [
+      '/images/milk-no50/spread_01.png',
+      '/images/milk-no50/spread_02.png',
       '/images/milk-no50/Mj50_1-2.png',
       '/images/milk-no50/Mj50_1-3.png',
       '/images/milk-no50/Mj50_1-4.png',
@@ -67,6 +69,9 @@ export const works: Work[] = [
     images: [
       '/images/milk-no48/MJ48_0-1.png',
       '/images/milk-no48/MJ48_1-2.png',
+      '/images/milk-no48/spread_01.png',
+      '/images/milk-no48/spread_02.png',
+      '/images/milk-no48/spread_03.png',
       '/images/milk-no48/MJ48_4.png',
     ],
   },
