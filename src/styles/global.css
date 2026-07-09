@@ -37,7 +37,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  padding: 96px 0 0;
+  padding: 100px 0 0;
 }
 
 header.nav-only {
@@ -93,7 +93,7 @@ nav a:hover {
 
 footer {
   margin-top: 120px;
-  padding-bottom: 48px;
+  padding-bottom: 20px;
   text-align: center;
 }
 
@@ -114,9 +114,12 @@ footer p {
     display: none;
   }
   header {
-    padding-top: 76px;
+    padding-top: 110px;
   }
   .header-left h1 {
-    margin-bottom: 25px;
+    margin-bottom: 44px;
+  }
+  footer {
+    margin-top: 110px;
   }
 }

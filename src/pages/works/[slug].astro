@@ -25,15 +25,15 @@ const work = works.find((w) => w.slug === slug)!;
 
     <section class="work-detail-header-section">
       <div class="work-detail-header">
-        <div>
-          <h2 class="work-detail-title">{work.title}</h2>
+        <h2 class="work-detail-title">{work.title}</h2>
+        <div class="work-detail-meta">
           {work.tags && work.tags.length > 0 && (
             <p class="work-detail-tags">{work.tags.join(' , ')}</p>
           )}
+          {work.date && (
+            <p class="work-detail-pagination">{work.date}</p>
+          )}
         </div>
-        {work.date && (
-          <p class="work-detail-pagination">{work.date}</p>
-        )}
       </div>
     </section>
   </div>
@@ -91,10 +91,15 @@ const work = works.find((w) => w.slug === slug)!;
     padding-bottom: 100px;
   }
 
+  @media (max-width: 600px) {
+    .work-detail-header-section {
+      margin-top: 110px;
+      padding-bottom: 110px;
+    }
+  }
+
   .work-detail-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+    position: relative;
   }
 
   .work-detail-title {
@@ -105,6 +110,12 @@ const work = works.find((w) => w.slug === slug)!;
     margin-bottom: 40px;
   }
 
+  .work-detail-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
   .work-detail-tags {
     font-size: 12px;
     font-weight: 400;
@@ -113,12 +124,25 @@ const work = works.find((w) => w.slug === slug)!;
   }
 
   .work-detail-pagination {
+    position: absolute;
+    top: 0;
+    right: 0;
     font-size: 10px;
     font-weight: 300;
     letter-spacing: 0.08em;
     color: var(--color-subtitle);
     white-space: nowrap;
     padding-top: 2px;
+  }
+
+  @media (max-width: 600px) {
+    .work-detail-title {
+      margin-bottom: 44px;
+    }
+    .work-detail-pagination {
+      position: static;
+      padding-top: 0;
+    }
   }
 
   /* 画像セクション: 全幅グレー背景 */
@@ -128,12 +152,12 @@ const work = works.find((w) => w.slug === slug)!;
   }
 
   .work-images-inner {
-    padding: 60px 0 80px;
+    padding: 100px 0 100px;
   }
 
   .work-detail-hero {
     width: 100%;
-    margin: 0 auto 32px;
+    margin: 0 auto 100px;
   }
 
   .work-detail-hero img {
@@ -157,8 +181,13 @@ const work = works.find((w) => w.slug === slug)!;
   }
 
   @media (max-width: 600px) {
+    .work-images-inner {
+      padding: 80px 0 80px;
+    }
+
     .work-detail-hero {
       width: 100%;
+      margin-bottom: 80px;
     }
 
     .work-detail-hero img {
@@ -173,7 +202,7 @@ const work = works.find((w) => w.slug === slug)!;
 
   /* webレイアウト */
   .work-web-inner {
-    padding: 60px 0 80px;
+    padding: 100px 0 100px;
   }
 
   /* デバイスモックアップ（影は画像に含まれる） */
@@ -189,9 +218,17 @@ const work = works.find((w) => w.slug === slug)!;
   }
 
   @media (max-width: 600px) {
+    .work-web-inner {
+      padding: 80px 0 80px;
+    }
+    
     .work-web-hero {
       width: 100%;
     }
+  }
+
+  :global(footer) {
+    margin-top: 20px !important;
   }
 
   .work-web-image {
