@@ -36,10 +36,10 @@ export const works: Work[] = [
     tags: ['Editorial Design'],
     images: [
       '/images/milk-no50/spread_01.png',
-      '/images/milk-no50/Mj50_1-3.png',
       '/images/milk-no50/Mj50_1-2.png',
-      '/images/milk-no50/Mj50_1-5.png',
+      '/images/milk-no50/Mj50_1-3.png',
       '/images/milk-no50/Mj50_1-4.png',
+      '/images/milk-no50/Mj50_1-5.png',
       '/images/milk-no50/spread_02.png',
     ],
   },
