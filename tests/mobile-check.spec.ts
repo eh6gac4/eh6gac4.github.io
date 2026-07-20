@@ -84,26 +84,26 @@ test('2. index — no overflow, header subtext vs hamburger, 1-col grid', async 
   const hamburger = page.locator('.hamburger');
   const hamburgerBox = await hamburger.boundingBox();
 
-  // サブタイトルの右端
   const subtitleBox = await subtitle.boundingBox();
-  // h1 の右端
   const h1Box = await h1.boundingBox();
 
   if (subtitleBox && hamburgerBox) {
-    const subtitleRight = subtitleBox.x + subtitleBox.width;
-    const hamburgerLeft = hamburgerBox.x;
-    expect(
-      subtitleRight,
-      `subtitle text right (${subtitleRight}px) overlaps hamburger left (${hamburgerLeft}px)`
-    ).toBeLessThanOrEqual(hamburgerLeft + 4);
+    const isOverlapping = !(
+      subtitleBox.x + subtitleBox.width <= hamburgerBox.x ||
+      hamburgerBox.x + hamburgerBox.width <= subtitleBox.x ||
+      subtitleBox.y + subtitleBox.height <= hamburgerBox.y ||
+      hamburgerBox.y + hamburgerBox.height <= subtitleBox.y
+    );
+    expect(isOverlapping, `subtitle text overlaps hamburger`).toBe(false);
   }
   if (h1Box && hamburgerBox) {
-    const h1Right = h1Box.x + h1Box.width;
-    const hamburgerLeft = hamburgerBox.x;
-    expect(
-      h1Right,
-      `h1 text right (${h1Right}px) overlaps hamburger left (${hamburgerLeft}px)`
-    ).toBeLessThanOrEqual(hamburgerLeft + 4);
+    const isOverlapping = !(
+      h1Box.x + h1Box.width <= hamburgerBox.x ||
+      hamburgerBox.x + hamburgerBox.width <= h1Box.x ||
+      h1Box.y + h1Box.height <= hamburgerBox.y ||
+      hamburgerBox.y + hamburgerBox.height <= h1Box.y
+    );
+    expect(isOverlapping, `h1 text overlaps hamburger`).toBe(false);
   }
 
   // ── グリッドが 1 カラムになっているか ──
@@ -177,11 +177,14 @@ test('4. work detail header — no overflow, title vs date layout', async ({ pag
       'pagination right edge overflows viewport'
     ).toBeLessThanOrEqual(viewportWidth + 1);
 
-    // タイトルの右端が日付の左端と重なっていないか（4px バッファ）
-    expect(
-      titleBox.x + titleBox.width,
-      `title right (${titleBox.x + titleBox.width}) overlaps pagination left (${paginBox.x})`
-    ).toBeLessThanOrEqual(paginBox.x + 4);
+    // タイトルと日付が重なっていないか
+    const isOverlapping = !(
+      titleBox.x + titleBox.width <= paginBox.x ||
+      paginBox.x + paginBox.width <= titleBox.x ||
+      titleBox.y + titleBox.height <= paginBox.y ||
+      paginBox.y + paginBox.height <= titleBox.y
+    );
+    expect(isOverlapping, `title overlaps pagination`).toBe(false);
   }
 });
 
