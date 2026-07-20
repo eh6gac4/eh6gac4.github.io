@@ -138,6 +138,7 @@ test('3. hamburger menu — open and close', async ({ page }) => {
 
   // 開く
   await hamburger.click();
+  await page.waitForTimeout(500); // アニメーション完了待ち
   await page.screenshot({ path: 'test-results/mobile-03-menu-open.png' });
   await expect(mobileMenu).toHaveClass(/is-open/);
   await expect(page.locator('.mobile-menu a').first()).toBeVisible();
