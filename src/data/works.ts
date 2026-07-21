@@ -184,10 +184,6 @@ export const works: Work[] = [
     thumbnail: '/images/top/milk_no39.jpg',
     cover: '/images/milk-no39/cover.jpg',
     tags: ['Editorial Design'],
-    images: [
-      '/images/milk-no39/spread_01.png',
-      '/images/milk-no39/spread_02.png',
-      '/images/milk-no39/spread_03.png',
-    ],
+    images: [],
   },
 ];

@@ -88,13 +88,13 @@ const work = works.find((w) => w.slug === slug)!;
 <style>
   .work-detail-header-section {
     margin-top: 100px;
-    padding-bottom: 100px;
+    padding-bottom: 60px;
   }
 
   @media (max-width: 600px) {
     .work-detail-header-section {
       margin-top: 110px;
-      padding-bottom: 110px;
+      padding-bottom: 55px;
     }
   }
 
@@ -152,19 +152,20 @@ const work = works.find((w) => w.slug === slug)!;
   }
 
   .work-images-inner {
-    padding: 100px 0 100px;
+    padding: 60px 0 100px;
   }
 
   .work-detail-hero {
     width: 100%;
-    margin: 0 auto 100px;
+    margin: 0 auto 60px;
   }
 
   .work-detail-hero img {
-    height: 680px;
+    height: 544px;
     width: auto;
     margin: 0 auto;
     display: block;
+    clip-path: inset(0 0 0 1px);
   }
 
   /* サブ画像: 2列グリッド・横長（見開き比率） */
@@ -182,12 +183,12 @@ const work = works.find((w) => w.slug === slug)!;
 
   @media (max-width: 600px) {
     .work-images-inner {
-      padding: 80px 0 80px;
+      padding: 55px 0 80px;
     }
 
     .work-detail-hero {
       width: 100%;
-      margin-bottom: 80px;
+      margin-bottom: 55px;
     }
 
     .work-detail-hero img {
@@ -202,12 +203,16 @@ const work = works.find((w) => w.slug === slug)!;
 
   /* webレイアウト */
   .work-web-inner {
-    padding: 100px 0 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+    align-items: center;
+    padding: 60px 0 100px;
   }
 
   /* デバイスモックアップ（影は画像に含まれる） */
   .work-web-hero {
-    width: 84%;
+    width: 67.2%;
     margin: 0 auto;
   }
 
@@ -219,7 +224,8 @@ const work = works.find((w) => w.slug === slug)!;
 
   @media (max-width: 600px) {
     .work-web-inner {
-      padding: 80px 0 80px;
+      padding: 55px 0 80px;
+      gap: 60px;
     }
     
     .work-web-hero {
