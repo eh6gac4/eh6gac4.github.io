@@ -43,12 +43,18 @@ const work = works.find((w) => w.slug === slug)!;
     <div class="site-wrapper">
 
       {(work.desktop || work.mobile) ? (
-        <!-- webレイアウト: 幅によってdesktop/mobile画像を切り替え -->
+        <!-- webレイアウト: CSSでdesktop/mobile画像を切り替え -->
         <div class="work-web-inner">
-          <picture class="work-web-image">
-            {work.mobile && <source media="(max-width: 600px)" srcset={getImage(work.mobile)?.src} />}
-            {work.desktop && <Image src={getImage(work.desktop)!} alt={work.title} loading="lazy" />}
-          </picture>
+          {work.desktop && (
+            <div class="work-web-image desktop-only">
+              <Image src={getImage(work.desktop)!} alt={work.title} loading="lazy" />
+            </div>
+          )}
+          {work.mobile && (
+            <div class="work-web-image mobile-only">
+              <Image src={getImage(work.mobile)!} alt={work.title} loading="lazy" />
+            </div>
+          )}
         </div>
       ) : (
         <!-- エディトリアルレイアウト -->
@@ -207,6 +213,9 @@ const work = works.find((w) => w.slug === slug)!;
     margin: 0 auto;
   }
 
+  .desktop-only { display: block; }
+  .mobile-only { display: none; }
+
   .work-web-image img {
     width: 100%;
     height: auto;
@@ -221,6 +230,9 @@ const work = works.find((w) => w.slug === slug)!;
     .work-web-image {
       width: 100%;
     }
+
+    .desktop-only { display: none; }
+    .mobile-only { display: block; }
   }
 
   :global(footer) {
