@@ -45,15 +45,10 @@ const work = works.find((w) => w.slug === slug)!;
       {(work.desktop || work.mobile) ? (
         <!-- webレイアウト: 幅によってdesktop/mobile画像を切り替え -->
         <div class="work-web-inner">
-          {work.cover && (
-            <div class="work-web-hero">
-              <Image src={getImage(work.cover)!} alt={work.title} loading="eager" fetchpriority="high" />
-            </div>
-          )}
-          <div class="work-web-images">
-            {work.desktop && <Image class="web-mockup" src={getImage(work.desktop)!} alt={work.title} loading="lazy" />}
-            {work.mobile && <Image class="web-mockup" src={getImage(work.mobile)!} alt={work.title} loading="lazy" />}
-          </div>
+          <picture class="work-web-image">
+            {work.mobile && <source media="(max-width: 600px)" srcset={getImage(work.mobile)?.src} />}
+            {work.desktop && <Image src={getImage(work.desktop)!} alt={work.title} loading="lazy" />}
+          </picture>
         </div>
       ) : (
         <!-- エディトリアルレイアウト -->
@@ -203,32 +198,27 @@ const work = works.find((w) => w.slug === slug)!;
 
   /* webレイアウト */
   .work-web-inner {
-    display: flex;
-    flex-direction: column;
-    gap: 100px;
-    align-items: center;
     padding: 60px 0 100px;
   }
 
-  /* デバイスモックアップ（影は画像に含まれる） */
-  .work-web-hero {
-    width: 67.2%;
+  .work-web-image {
+    display: block;
+    width: 80%; /* Shrink to 80% of original view as requested for hero */
     margin: 0 auto;
   }
 
-  .work-web-hero img {
+  .work-web-image img {
     width: 100%;
     height: auto;
     display: block;
   }
-
+  
   @media (max-width: 600px) {
     .work-web-inner {
       padding: 55px 0 80px;
-      gap: 60px;
     }
     
-    .work-web-hero {
+    .work-web-image {
       width: 100%;
     }
   }
@@ -237,24 +227,5 @@ const work = works.find((w) => w.slug === slug)!;
     margin-top: 20px !important;
   }
 
-  .work-web-images {
-    display: flex;
-    flex-direction: column;
-    gap: 100px;
-    width: 100%;
-    align-items: center;
-  }
 
-  .web-mockup {
-    width: 100%;
-    max-width: 1040px; /* or auto, since we want them to fill the container nicely */
-    height: auto;
-    display: block;
-  }
-  
-  @media (max-width: 600px) {
-    .work-web-images {
-      gap: 60px;
-    }
-  }
 </style>
