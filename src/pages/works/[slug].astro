@@ -47,12 +47,12 @@ const work = works.find((w) => w.slug === slug)!;
         <div class="work-web-inner">
           {work.desktop && (
             <div class="work-web-image desktop-only">
-              <Image src={getImage(work.desktop)!} alt={work.title} loading="lazy" />
+              <Image src={getImage(work.desktop)!} alt={work.title} loading="lazy" quality="max" />
             </div>
           )}
           {work.mobile && (
             <div class="work-web-image mobile-only">
-              <Image src={getImage(work.mobile)!} alt={work.title} loading="lazy" />
+              <Image src={getImage(work.mobile)!} alt={work.title} loading="lazy" quality="max" />
             </div>
           )}
         </div>
@@ -61,14 +61,14 @@ const work = works.find((w) => w.slug === slug)!;
         <div class="work-images-inner">
           {work.cover && (
             <div class="work-detail-hero">
-              <Image src={getImage(work.cover)!} alt={work.title} loading="eager" fetchpriority="high" />
+              <Image src={getImage(work.cover)!} alt={work.title} loading="eager" fetchpriority="high" quality="max" />
             </div>
           )}
           {work.images && work.images.length > 0 && (
             <div class="work-detail-grid">
               {work.images.map((src, idx) => (
                 <div class="work-detail-sub">
-                  <Image src={getImage(src)!} alt={work.title} loading={idx < 2 && !work.cover ? 'eager' : 'lazy'} fetchpriority={idx < 2 && !work.cover ? 'high' : 'auto'} />
+                  <Image src={getImage(src)!} alt={work.title} loading={idx < 2 && !work.cover ? 'eager' : 'lazy'} fetchpriority={idx < 2 && !work.cover ? 'high' : 'auto'} quality="max" />
                 </div>
               ))}
             </div>
