@@ -50,10 +50,10 @@ const work = works.find((w) => w.slug === slug)!;
               <Image src={getImage(work.cover)!} alt={work.title} loading="eager" fetchpriority="high" />
             </div>
           )}
-          <picture class="work-web-image">
-            {work.mobile && <source media="(max-width: 600px)" srcset={getImage(work.mobile)?.src} />}
-            {work.desktop && <Image src={getImage(work.desktop)!} alt={work.title} loading="lazy" />}
-          </picture>
+          <div class="work-web-images">
+            {work.desktop && <Image class="web-mockup" src={getImage(work.desktop)!} alt={work.title} loading="lazy" />}
+            {work.mobile && <Image class="web-mockup" src={getImage(work.mobile)!} alt={work.title} loading="lazy" />}
+          </div>
         </div>
       ) : (
         <!-- エディトリアルレイアウト -->
@@ -237,13 +237,24 @@ const work = works.find((w) => w.slug === slug)!;
     margin-top: 20px !important;
   }
 
-  .work-web-image {
-    display: block;
+  .work-web-images {
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+    width: 100%;
+    align-items: center;
   }
 
-  .work-web-image img {
+  .web-mockup {
     width: 100%;
+    max-width: 1040px; /* or auto, since we want them to fill the container nicely */
     height: auto;
     display: block;
+  }
+  
+  @media (max-width: 600px) {
+    .work-web-images {
+      gap: 60px;
+    }
   }
 </style>
