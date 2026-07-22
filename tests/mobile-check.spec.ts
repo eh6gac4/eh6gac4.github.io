@@ -231,7 +231,7 @@ test('6. milk-web — mobile image loaded, no overflow', async ({ page }) => {
   await checkNoHorizontalOverflow(page);
 
   // picture 要素の img が viewport 幅に収まっているか
-  const webImg = page.locator('.work-web-image img');
+  const webImg = page.locator('.work-web-image.mobile-only img');
   const imgBox = await webImg.boundingBox();
   if (imgBox) {
     const viewportWidth = page.viewportSize()!.width;
@@ -252,8 +252,8 @@ test('7. udg — hero width 100%, no overflow', async ({ page }) => {
 
   await checkNoHorizontalOverflow(page);
 
-  // hero (.work-web-hero img) が viewport 幅 ≒ 100% になっているか
-  const heroImg = page.locator('.work-web-hero img');
+  // hero (.work-detail-hero img) が viewport 幅 ≒ 100% になっているか
+  const heroImg = page.locator('.work-detail-hero img');
   const heroBox = await heroImg.boundingBox();
   if (heroBox) {
     const viewportWidth = page.viewportSize()!.width;
