@@ -43,31 +43,32 @@ const work = works.find((w) => w.slug === slug)!;
     <div class="site-wrapper">
 
       {(work.desktop || work.mobile) ? (
-        <!-- webレイアウト: 幅によってdesktop/mobile画像を切り替え -->
+        <!-- webレイアウト: CSSでdesktop/mobile画像を切り替え -->
         <div class="work-web-inner">
-          {work.cover && (
-            <div class="work-web-hero">
-              <Image src={getImage(work.cover)!} alt={work.title} loading="eager" fetchpriority="high" />
+          {work.desktop && (
+            <div class="work-web-image desktop-only">
+              <Image src={getImage(work.desktop)!} alt={work.title} loading="lazy" quality="max" />
             </div>
           )}
-          <picture class="work-web-image">
-            {work.mobile && <source media="(max-width: 600px)" srcset={getImage(work.mobile)?.src} />}
-            {work.desktop && <Image src={getImage(work.desktop)!} alt={work.title} loading="lazy" />}
-          </picture>
+          {work.mobile && (
+            <div class="work-web-image mobile-only">
+              <Image src={getImage(work.mobile)!} alt={work.title} loading="lazy" quality="max" />
+            </div>
+          )}
         </div>
       ) : (
         <!-- エディトリアルレイアウト -->
         <div class="work-images-inner">
           {work.cover && (
             <div class="work-detail-hero">
-              <Image src={getImage(work.cover)!} alt={work.title} loading="eager" fetchpriority="high" />
+              <Image src={getImage(work.cover)!} alt={work.title} loading="eager" fetchpriority="high" quality="max" />
             </div>
           )}
           {work.images && work.images.length > 0 && (
             <div class="work-detail-grid">
               {work.images.map((src, idx) => (
                 <div class="work-detail-sub">
-                  <Image src={getImage(src)!} alt={work.title} loading={idx < 2 && !work.cover ? 'eager' : 'lazy'} fetchpriority={idx < 2 && !work.cover ? 'high' : 'auto'} />
+                  <Image src={getImage(src)!} alt={work.title} loading={idx < 2 && !work.cover ? 'eager' : 'lazy'} fetchpriority={idx < 2 && !work.cover ? 'high' : 'auto'} quality="max" />
                 </div>
               ))}
             </div>
@@ -88,7 +89,7 @@ const work = works.find((w) => w.slug === slug)!;
 <style>
   .work-detail-header-section {
     margin-top: 100px;
-    padding-bottom: 100px;
+    padding-bottom: 60px;
   }
 
   @media (max-width: 600px) {
@@ -152,16 +153,20 @@ const work = works.find((w) => w.slug === slug)!;
   }
 
   .work-images-inner {
-    padding: 100px 0 100px;
+    padding: 60px 0 100px;
   }
 
   .work-detail-hero {
     width: 100%;
-    margin: 0 auto 100px;
+    margin: 0 auto 60px;
+  }
+
+  .work-detail-hero:last-child {
+    margin-bottom: 0;
   }
 
   .work-detail-hero img {
-    height: 680px;
+    height: 544px;
     width: auto;
     margin: 0 auto;
     display: block;
@@ -190,6 +195,10 @@ const work = works.find((w) => w.slug === slug)!;
       margin-bottom: 80px;
     }
 
+    .work-detail-hero:last-child {
+      margin-bottom: 0;
+    }
+
     .work-detail-hero img {
       width: 100%;
       height: auto;
@@ -202,42 +211,41 @@ const work = works.find((w) => w.slug === slug)!;
 
   /* webレイアウト */
   .work-web-inner {
-    padding: 100px 0 100px;
-  }
-
-  /* デバイスモックアップ（影は画像に含まれる） */
-  .work-web-hero {
-    width: 84%;
-    margin: 0 auto;
-  }
-
-  .work-web-hero img {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
-
-  @media (max-width: 600px) {
-    .work-web-inner {
-      padding: 80px 0 80px;
-    }
-    
-    .work-web-hero {
-      width: 100%;
-    }
-  }
-
-  :global(footer) {
-    margin-top: 20px !important;
+    padding: 60px 0 100px;
   }
 
   .work-web-image {
     display: block;
+    width: 80%; /* Shrink to 80% of original view as requested for hero */
+    margin: 0 auto;
   }
+
+  .desktop-only { display: block; }
+  .mobile-only { display: none; }
 
   .work-web-image img {
     width: 100%;
     height: auto;
     display: block;
   }
+  
+  @media (max-width: 600px) {
+    .work-web-inner {
+      padding: 80px 0 80px;
+      gap: 60px;
+    }
+    
+    .work-web-image {
+      width: 100%;
+    }
+
+    .desktop-only { display: none; }
+    .mobile-only { display: block; }
+  }
+
+  :global(footer) {
+    margin-top: 20px !important;
+  }
+
+
 </style>
