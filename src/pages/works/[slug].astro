@@ -45,6 +45,11 @@ const work = works.find((w) => w.slug === slug)!;
       {(work.desktop || work.mobile) ? (
         <!-- webレイアウト: CSSでdesktop/mobile画像を切り替え -->
         <div class="work-web-inner">
+          {work.cover && (
+            <div class="work-detail-hero">
+              <Image src={getImage(work.cover)!} alt={work.title} loading="eager" fetchpriority="high" quality="max" />
+            </div>
+          )}
           {work.desktop && (
             <div class="work-web-image desktop-only">
               <Image src={getImage(work.desktop)!} alt={work.title} loading="lazy" quality="max" />
@@ -94,8 +99,8 @@ const work = works.find((w) => w.slug === slug)!;
 
   @media (max-width: 600px) {
     .work-detail-header-section {
-      margin-top: 110px;
-      padding-bottom: 110px;
+      margin-top: 70px;
+      padding-bottom: 70px;
     }
   }
 
