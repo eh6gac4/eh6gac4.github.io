@@ -30,30 +30,21 @@
 </style>
 
 <script>
-  const setupPageTop = () => {
-    const btn = document.getElementById('pageTopBtn');
-    if (!btn) return;
-    
-    // 一度イベントリスナーをリセット
-    const newBtn = btn.cloneNode(true);
-    btn.parentNode.replaceChild(newBtn, btn);
-    
-    newBtn.addEventListener('click', (e) => {
+  const btn = document.getElementById('pageTopBtn');
+  if (btn) {
+    btn.addEventListener('click', (e) => {
       e.preventDefault();
       
       // 画面上部へスクロール
       window.scrollTo({ top: 0, behavior: 'smooth' });
       
       // 発射アニメーションクラスの付与
-      newBtn.classList.add('launch');
+      btn.classList.add('launch');
       
       // アニメーション完了後にクラスを外す
       setTimeout(() => {
-        newBtn.classList.remove('launch');
+        btn.classList.remove('launch');
       }, 1200);
     });
-  };
-
-  document.addEventListener('DOMContentLoaded', setupPageTop);
-  document.addEventListener('astro:page-load', setupPageTop);
+  }
 </script>
