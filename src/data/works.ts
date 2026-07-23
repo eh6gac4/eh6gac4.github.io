@@ -140,7 +140,7 @@ export const works: Work[] = [
     title: 'UDG.,co.ltd',
     date: '2021.04',
     thumbnail: '/images/top/udg_co_ltd.jpg',
-    cover: '/images/udg/hero.jpg',
+    cover: '/images/udg/hero.png',
     tags: ['Art Direction', 'Web Design'],
     desktop: '/images/udg/desktop.jpg',
     mobile: '/images/udg/mobile.jpg',
