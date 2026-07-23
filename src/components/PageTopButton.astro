@@ -1,0 +1,50 @@
+---
+---
+<a href="#" class="page-top-btn" id="pageTopBtn" aria-label="ページトップへ戻る">
+  <img src="/images/beetle.svg" alt="" />
+</a>
+
+<style>
+  .page-top-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 48px;
+    height: auto;
+    cursor: pointer;
+    z-index: 90;
+    transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+  
+  @media (max-width: 600px) {
+    .page-top-btn {
+      bottom: 20px;
+      right: 20px;
+      width: 40px;
+    }
+  }
+
+  .page-top-btn.launch {
+    transform: translateY(-120vh) !important;
+  }
+</style>
+
+<script>
+  const btn = document.getElementById('pageTopBtn');
+  if (btn) {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      
+      // 画面上部へスクロール
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      
+      // 発射アニメーションクラスの付与
+      btn.classList.add('launch');
+      
+      // アニメーション完了後にクラスを外す
+      setTimeout(() => {
+        btn.classList.remove('launch');
+      }, 1200);
+    });
+  }
+</script>

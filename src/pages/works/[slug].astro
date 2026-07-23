@@ -3,6 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 import SiteHeader from '../../components/SiteHeader.astro';
 import SiteFooter from '../../components/SiteFooter.astro';
 import PasswordOverlay from '../../components/PasswordOverlay.astro';
+import PageTopButton from '../../components/PageTopButton.astro';
 import { works } from '../../data/works';
 import { Image } from 'astro:assets';
 
@@ -88,6 +89,7 @@ const work = works.find((w) => w.slug === slug)!;
     <SiteFooter />
   </div>
 
+  <PageTopButton />
   <PasswordOverlay />
 </Layout>
 
@@ -143,7 +145,7 @@ const work = works.find((w) => w.slug === slug)!;
 
   @media (max-width: 600px) {
     .work-detail-title {
-      margin-bottom: 44px;
+      margin-bottom: 14px;
     }
     .work-detail-pagination {
       position: static;
