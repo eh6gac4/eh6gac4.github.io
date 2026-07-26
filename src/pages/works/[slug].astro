@@ -3,7 +3,6 @@ import Layout from '../../layouts/Layout.astro';
 import SiteHeader from '../../components/SiteHeader.astro';
 import SiteFooter from '../../components/SiteFooter.astro';
 import PasswordOverlay from '../../components/PasswordOverlay.astro';
-import PageTopButton from '../../components/PageTopButton.astro';
 import { works } from '../../data/works';
 import { Image } from 'astro:assets';
 
@@ -89,20 +88,19 @@ const work = works.find((w) => w.slug === slug)!;
     <SiteFooter />
   </div>
 
-  <PageTopButton />
   <PasswordOverlay />
 </Layout>
 
 <style>
   .work-detail-header-section {
     margin-top: 100px;
-    padding-bottom: 60px;
+    padding-bottom: 50px;
   }
 
   @media (max-width: 600px) {
     .work-detail-header-section {
       margin-top: 70px;
-      padding-bottom: 70px;
+      padding-bottom: 35px;
     }
   }
 
@@ -115,7 +113,7 @@ const work = works.find((w) => w.slug === slug)!;
     font-weight: 600;
     letter-spacing: 0.08em;
     color: #000000;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
   }
 
   .work-detail-meta {
@@ -160,12 +158,12 @@ const work = works.find((w) => w.slug === slug)!;
   }
 
   .work-images-inner {
-    padding: 60px 0 100px;
+    padding: 50px 0 80px;
   }
 
   .work-detail-hero {
     width: 100%;
-    margin: 0 auto 60px;
+    margin: 0 auto 100px;
   }
 
   .work-detail-hero:last-child {
@@ -194,12 +192,12 @@ const work = works.find((w) => w.slug === slug)!;
 
   @media (max-width: 600px) {
     .work-images-inner {
-      padding: 80px 0 80px;
+      padding: 35px 0 50px;
     }
 
     .work-detail-hero {
       width: 100%;
-      margin-bottom: 80px;
+      margin-bottom: 70px;
     }
 
     .work-detail-hero:last-child {
@@ -218,7 +216,7 @@ const work = works.find((w) => w.slug === slug)!;
 
   /* webレイアウト */
   .work-web-inner {
-    padding: 60px 0 100px;
+    padding: 50px 0 80px;
   }
 
   .work-web-image {
@@ -238,8 +236,10 @@ const work = works.find((w) => w.slug === slug)!;
   
   @media (max-width: 600px) {
     .work-web-inner {
-      padding: 80px 0 80px;
-      gap: 60px;
+      padding: 35px 0 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
     
     .work-web-image {
