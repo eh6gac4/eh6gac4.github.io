@@ -128,11 +128,12 @@ export const works: Work[] = [
   {
     slug: 'milk-web',
     title: 'MilK MAGAZINE japon Web',
+    date: '2021.04',
     thumbnail: '/images/top/milk_web.jpg',
     cover: '/images/milk-web/MilK_web.png',
     tags: ['Web Design'],
     desktop: '/images/milk-web/desktop.jpg',
-    mobile: '/images/milk-web/mobile.jpg',
+    mobile: '/images/milk-web/desktop.jpg',
     images: [],
   },
   {
@@ -143,7 +144,7 @@ export const works: Work[] = [
     cover: '/images/udg/hero.png',
     tags: ['Art Direction', 'Web Design'],
     desktop: '/images/udg/desktop.jpg',
-    mobile: '/images/udg/mobile.jpg',
+    mobile: '/images/udg/desktop.jpg',
   },
   {
     slug: 'milk-no41',

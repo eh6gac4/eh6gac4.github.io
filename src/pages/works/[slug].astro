@@ -46,7 +46,7 @@ const work = works.find((w) => w.slug === slug)!;
         <!-- webレイアウト: CSSでdesktop/mobile画像を切り替え -->
         <div class="work-web-inner">
           {work.cover && (
-            <div class="work-detail-hero">
+            <div class="work-detail-hero web-hero">
               <Image src={getImage(work.cover)!} alt={work.title} loading="eager" fetchpriority="high" quality="max" />
             </div>
           )}
@@ -63,7 +63,7 @@ const work = works.find((w) => w.slug === slug)!;
         </div>
       ) : (
         <!-- エディトリアルレイアウト -->
-        <div class="work-images-inner">
+        <div class={`work-images-inner ${work.images && work.images.length > 0 ? 'has-grid' : 'no-grid'}`}>
           {work.cover && (
             <div class="work-detail-hero">
               <Image src={getImage(work.cover)!} alt={work.title} loading="eager" fetchpriority="high" quality="max" />
@@ -158,12 +158,20 @@ const work = works.find((w) => w.slug === slug)!;
   }
 
   .work-images-inner {
-    padding: 60px 0 60px;
+    padding-top: 100px;
+  }
+  
+  .work-images-inner.has-grid {
+    padding-bottom: 90px;
+  }
+
+  .work-images-inner.no-grid {
+    padding-bottom: 94px;
   }
 
   .work-detail-hero {
     width: 100%;
-    margin: 0 auto 60px;
+    margin: 0 auto 94px;
   }
 
   .work-detail-hero:last-child {
@@ -191,11 +199,14 @@ const work = works.find((w) => w.slug === slug)!;
   }
 
   @media (max-width: 600px) {
-    .work-images-inner {
+    .work-images-inner,
+    .work-images-inner.has-grid,
+    .work-images-inner.no-grid {
       padding: 70px 0 70px;
     }
 
-    .work-detail-hero {
+    .work-detail-hero,
+    .work-detail-hero.web-hero {
       width: 100%;
       margin-bottom: 70px;
     }
@@ -216,7 +227,8 @@ const work = works.find((w) => w.slug === slug)!;
 
   /* webレイアウト */
   .work-web-inner {
-    padding: 60px 0 60px;
+    padding-top: 100px;
+    padding-bottom: 100px;
   }
 
   .work-web-image {
@@ -227,6 +239,14 @@ const work = works.find((w) => w.slug === slug)!;
 
   .desktop-only { display: block; }
   .mobile-only { display: none; }
+
+  .work-detail-hero.web-hero {
+    margin-bottom: 52px;
+  }
+  
+  .work-detail-hero.web-hero img {
+    transform: translateX(18px);
+  }
 
   .work-web-image img {
     width: 100%;
@@ -240,6 +260,10 @@ const work = works.find((w) => w.slug === slug)!;
       display: flex;
       flex-direction: column;
       align-items: center;
+    }
+    
+    .work-detail-hero.web-hero img {
+      transform: none; /* Reset PC right shift on mobile */
     }
     
     .work-web-image {
