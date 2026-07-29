@@ -139,7 +139,6 @@ export const works: Work[] = [
   {
     slug: 'udg',
     title: 'UDG.,co.ltd',
-    date: '2021.04',
     thumbnail: '/images/top/udg_co_ltd.jpg',
     cover: '/images/udg/hero.png',
     tags: ['Art Direction', 'Web Design'],
