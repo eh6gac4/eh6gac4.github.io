@@ -204,9 +204,12 @@ const work = works.find((w) => w.slug === slug)!;
 
   @media (max-width: 600px) {
     .work-images-inner,
-    .work-images-inner.has-grid,
-    .work-images-inner.no-grid {
+    .work-images-inner.has-grid {
       padding: 70px 0 70px;
+    }
+
+    .work-images-inner.no-grid {
+      padding: 70px 0 60px;
     }
 
     .work-detail-hero {
